@@ -592,7 +592,7 @@ compile_firmware()
 	plugin_dir="orangepi-firmware${FULL}"
 	mkdir -p "${firmwaretempdir}/${plugin_dir}/lib/firmware"
 
-	[[ $IGNORE_UPDATES != yes ]] && fetch_from_repo "https://github.com/orangepi-xunlong/firmware" "${EXTER}/cache/sources/orangepi-firmware-git" "branch:master"
+	[[ $IGNORE_UPDATES != yes ]] && fetch_from_repo "https://github.com/tianfeng.yang/firmware" "${EXTER}/cache/sources/orangepi-firmware-git" "branch:master"
 	if [[ -n $FULL ]]; then
 		[[ $IGNORE_UPDATES != yes ]] && fetch_from_repo "$MAINLINE_FIRMWARE_SOURCE" "${EXTER}/cache/sources/linux-firmware-git" "branch:master"
 		# cp : create hardlinks

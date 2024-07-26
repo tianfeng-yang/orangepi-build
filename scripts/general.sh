@@ -1443,8 +1443,8 @@ prepare_host()
 
   fi
 
-	# Add support for Ubuntu 20.04, 21.04 and Mint 20.x
-	if [[ $HOSTRELEASE =~ ^(focal|hirsute|jammy|ulyana|ulyssa|bullseye|bookworm|uma)$ ]]; then
+	# Add support for Ubuntu 20.04, 21.04 and Mint 20.x 21.x 22.x
+	if [[ $HOSTRELEASE =~ ^(focal|hirsute|jammy|ulyana|ulyssa|bullseye|bookworm|uma|virginia|wilma)$ ]]; then
 		hostdeps+=" python2 python3"
 		ln -fs /usr/bin/python2.7 /usr/bin/python2
 		ln -fs /usr/bin/python2.7 /usr/bin/python

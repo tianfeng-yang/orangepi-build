@@ -592,7 +592,7 @@ compile_firmware()
 	plugin_dir="orangepi-firmware${FULL}"
 	mkdir -p "${firmwaretempdir}/${plugin_dir}/lib/firmware"
 
-	[[ $IGNORE_UPDATES != yes ]] && fetch_from_repo "https://github.com/tianfeng-yang/firmware" "${EXTER}/cache/sources/orangepi-firmware-git" "branch:master"
+	[[ $IGNORE_UPDATES != yes ]] && fetch_from_repo ${FIRMWARE_SOURCE} "${EXTER}/cache/sources/orangepi-firmware-git" "branch:master"
 	if [[ -n $FULL ]]; then
 		[[ $IGNORE_UPDATES != yes ]] && fetch_from_repo "$MAINLINE_FIRMWARE_SOURCE" "${EXTER}/cache/sources/linux-firmware-git" "branch:master"
 		# cp : create hardlinks
@@ -1029,7 +1029,7 @@ userpatch_create()
 			read -e -p "Patch description: " -i "$COMMIT_MESSAGE" COMMIT_MESSAGE
 			[[ -z "$COMMIT_MESSAGE" ]] && COMMIT_MESSAGE="Patching something"
 			git commit -s -m "$COMMIT_MESSAGE"
-			git format-patch -1 HEAD --stdout --signature="Created with orangepi build tools https://github.com/orangepi-xunlong/build" > "${patch}"
+			git format-patch -1 HEAD --stdout --signature="Created with orangepi build tools ${GIT_SERVER}/build" > "${patch}"
 			PATCHFILE=$(git format-patch -1 HEAD)
 			rm $PATCHFILE # delete the actual file
 			# create a symlink to have a nice name ready
